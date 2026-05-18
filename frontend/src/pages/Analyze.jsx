@@ -85,12 +85,26 @@ const [result, setResult] = useState(null);
       }
     );
 
-    const data = await response.json();
+    if (!response.ok) {
+  const errorData = await response.json();
 
-    setResult(data);
+  console.error(errorData);
 
-    setLoading(false);
-    setShowResult(true);
+  alert(errorData.message || "Backend error");
+
+  setLoading(false);
+
+  return;
+}
+
+const data = await response.json();
+
+console.log(data);
+
+setResult(data);
+
+setLoading(false);
+setShowResult(true);
   } catch (error) {
     console.error(error);
     setLoading(false);
