@@ -342,7 +342,7 @@ window.addEventListener(
           <div className="mouse">
             <div className="wheel" />
           </div>
-          <span>Scroll to explore</span>
+          
         </div>
       </section>
 
